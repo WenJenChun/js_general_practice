@@ -18,12 +18,15 @@
 // }
 
 //計算成績平等，80以上優秀、60-79普通、59以下不及格
-let studentScore = 80;
+// let studentScore = 80;
 
-if(studentScore>=80){
-    console.log('優秀');
-} else if (studentScore>=60 && studentScore<=79){
-    console.log('普通');
-} else {
-    console.log('不及格');
-}
+// if(studentScore>=80){
+//     console.log('優秀');
+// } else if (studentScore>=60 && studentScore<=79){
+//     console.log('普通');
+// } else {
+//     console.log('不及格');
+// }
+
+
+
