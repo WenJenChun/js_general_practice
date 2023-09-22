@@ -29,4 +29,15 @@
 // }
 
 
+//計算 function 跑幾次
+
+// let count = 0;
+
+// function counting(){
+//     count+=1
+//     console.log(`${count}次`);
+// }
+
+// counting();
+// counting();
 
