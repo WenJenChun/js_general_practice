@@ -42,30 +42,48 @@
 // Note:
 // Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
 
-function betterThanAverage(classPoints, yourPoints) {
-    //如果我的分數比平均分數高，return true，反之 false
-    //平均分數算法：(classPoints + yourPoints)/(classPoints.length + 1)
+// function betterThanAverage(classPoints, yourPoints) {
+//     //如果我的分數比平均分數高，return true，反之 false
+//     //平均分數算法：(classPoints + yourPoints)/(classPoints.length + 1)
    
-    let sum = 0;
-    let average = 0;
+//     let sum = 0;
+//     let average = 0;
     
-    //先算出所有 classPoints
-    for(i=0;  i<classPoints.length; i++){
-      sum+=classPoints[i];
-      console.log(classPoints[i]);
-    }
-    //classPoints + yourPoints然後再去算平均分數
-    sum+=yourPoints;
-    average = sum / (classPoints.length + 1 );
-    console.log(average);
+//     //先算出所有 classPoints
+//     for(i=0;  i<classPoints.length; i++){
+//       sum+=classPoints[i];
+//       console.log(classPoints[i]);
+//     }
+//     //classPoints + yourPoints然後再去算平均分數
+//     sum+=yourPoints;
+//     average = sum / (classPoints.length + 1 );
+//     console.log(average);
 
-    //判斷並回傳結果
-    if(yourPoints >= average){
-        return true;
-    } else {
-        return false;
-    }
+//     //判斷並回傳結果
+//     if(yourPoints >= average){
+//         return true;
+//     } else {
+//         return false;
+//     }
     
-  }
+//   }
 
-  betterThanAverage([2,4,9],10);
+//   betterThanAverage([2,4,9],10);
+
+
+
+// ==========  Vowel Count ==========  
+
+function getCount(str) {
+    //把字串裡有母音的字符挑出來
+    //把母音都列出來
+    //把字串去對照母音陣列
+    let vowelNum = 0;
+    for(let i = 0; i<=str.length; i++){
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'){
+            vowelNum++;
+        }
+    }
+    console.log(vowelNum);
+}
+getCount('aeiou');
