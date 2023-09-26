@@ -84,6 +84,6 @@ function getCount(str) {
             vowelNum++;
         }
     }
-    console.log(vowelNum);
+    // console.log(vowelNum);
 }
 getCount('aeiou');
