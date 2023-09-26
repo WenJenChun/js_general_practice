@@ -42,17 +42,25 @@
 // counting();
 
 
-//計數器＋歸零按鈕
-const btn = document.querySelector('.btn');
-const zero = document.querySelector('.empty');
-const h3 = document.querySelector('h3');
+//計數器&歸零按鈕
+const add = document.querySelector('.add');
+const minus = document.querySelector('.minus');
+const zero = document.querySelector('.zero');
+const text = document.querySelector('p');
 let count = 0;
-btn.addEventListener("click", function(e){
+add.addEventListener("click", function(e){
     count++;
-    h3.innerText = `已點擊${count}次`;
+    text.innerText = `${count}次`;
+})
+
+minus.addEventListener("click", function(e){
+    count--;
+    text.innerText = `${count}次`;
 })
 
 zero.addEventListener("click", function(e){
     count = 0;
-    h3.innerText = `標題`;
+    if(text.innerText!=""){
+        text.innerText = `一切已歸零!`;
+    }
 })
