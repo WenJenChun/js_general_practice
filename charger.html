@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    ul li {
+        list-style: none;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2 class="text-center my-3">哎呀這裡就是新增充電站了~</h2>
+        <h5 class="text-center">還不是CRUD增刪查改啊啊</h5>
+        <h3 class="my-3">新增充電站</h3>    
+        <input type="text" id="inputName" class="form-control w-50 d-inline" placeholder="輸入充電站名稱">
+        <select id="type" class="form-select w-25 d-inline">
+            <option value="free">免費用到爽</option>
+            <option value="paid">投幣式</option>
+        </select>
+        <button type="button" class="btn btn-dark" id="save">儲存</button>
+        <p class="mt-2">總共儲存了 <span id="totalNum"></span> 個充電站</p>
+        <h3 class="my-3">顯示資料囉</h3>
+        
+        <button type="button" class="btn btn-primary" id="allBtn">全部都給我看</button>
+        <button type="button" class="btn btn-primary" id="freeBtn">我只要免費的</button>
+        <button type="button" class="btn btn-primary" id="paidBtn">看誰要我投錢</button>
+        <div class="datas">
+
+        </div>
+        
+    </div>
+
+    <script src="charger.js"></script>
+</body>
+</html>
