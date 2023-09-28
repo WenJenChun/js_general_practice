@@ -160,6 +160,8 @@
 // ========== 分隔線 ==========
 
 let totalStations = [];
+let freeStations = [];
+let paidStations = [];
 
 let inputName = '';
 let type ='';
@@ -170,6 +172,7 @@ const freeBtn = document.querySelector('#freeBtn');
 const paidBtn = document.querySelector('#paidBtn');
 
 const datas = document.querySelector('#datas');
+datas.textContent = '你還沒有新增儲存任何充電站喔～';
 
 let totalNum = document.querySelector('#totalNum');
 totalNum.textContent = '0';
@@ -185,19 +188,18 @@ save.addEventListener("click", function(e){
     station.type = type;
     console.log(station)
     
-    //物件加到陣列裡
+    //物件加到總陣列裡
     totalStations.push(station);
-    console.log(totalStations.length);
     totalNum.textContent = totalStations.length;
-});
 
-allBtn.addEventListener("click", function(e){
-
-    //如果陣列是空，顯示無資料
-    //如果陣列非空：
-    //  第一次點擊顯示資料
-    //  再次點擊不顯示資料
-
+    //依照免費或投幣加到各自陣列裡
+    if(station.type=="free"){
+        freeStations.push(station);
+    } else {
+        paidStations.push(station);
+    }
+   
+    //把建立的新物件顯示在畫面上
     let str = '';
     totalStations.forEach(function(item){
         if(item.type == "free"){
@@ -206,10 +208,48 @@ allBtn.addEventListener("click", function(e){
             str += `<p>${item.name}充電站，要付錢的呢! </p>`;
         }
     });
+
     datas.innerHTML = str;
-    
+
 });
 
+//手動 toggle 顯示資料與否
+function textToggle(){
+    if(datas.className == "d-block"){
+        datas.className = "d-none";
+    } else {
+        datas.className = "d-block";
+    }
+}
+
+allBtn.addEventListener("click", function(e){
+    let str = '';
+    totalStations.forEach(function(item){
+        if(item.type == "free"){
+            str += `<p>${item.name}充電站，免費的唷~ </p>`;
+        } else {
+            str += `<p>${item.name}充電站，要付錢的呢! </p>`; 
+        }
+    });
+
+    datas.innerHTML = str;
+});
+
+freeBtn.addEventListener("click", function(e){
+    let str = '';
+    freeStations.forEach(function(item){
+        str += `<p>${item.name}充電站，免費的唷~ </p>`;
+    });
+    datas.innerHTML = str;
+});
+
+paidBtn.addEventListener("click", function(e){
+    let str = '';
+    paidStations.forEach(function(item){
+        str += `<p>${item.name}充電站，要付錢的呢! </p>`;
+    });
+    datas.innerHTML = str;
+});
 
 
 
