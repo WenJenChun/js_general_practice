@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="./todos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-    <div class="my-5">
+<body class="bg-yellow">
+    <div class="my-5 text-center">
         <h1 id="todoTitle" class="text-center"></h1>
         <p id="todoDetail" class="text-center"></p>
+        <button id="editTodo" type="submit" class="d-block bg-red align-middle mx-auto">修改內容</button>
+        <div id="editArea" class="d-none">
+            <input id="newTitle" type="text" class="w-50 mx-auto my-3" placeholder="修改代辦事項標題">
+            <input id="newDetail" type="text" class="w-50 mx-auto mb-3" placeholder="修改代辦事項備註">
+            <button id="editSave" type="submit" class="d-block bg-red align-middle mx-auto">儲存</button>
+        </div>
     </div>
     
     <a href="./todos.html" class="d-block text-center">回待辦清單頁</a><br>

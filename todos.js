@@ -40,14 +40,14 @@ function init(){
             server.textContent = "伺服器目前醒著唷唷 (⁎⁍̴̛ᴗ⁍̴̛⁎)";
         }
         let str = '';
-        res.data.forEach(function(item, index){
+        res.data.forEach(function(item){
             str += `<li class="mb-3 d-flex align-items-center justify-content-between">
-                      <div>
+                      <h5>
                         ${item.title} 
-                      </div>
+                      </h5>
                       <div>
-                        <button onclick="location.href='todo-detail.html?id=${index+1}'" data-num="${index}" class="text-dark bg-yellow align-middle">看詳細</button>
-                        <button id="deleteTodo" type="submit" data-num="${index}" class="bg-red align-middle">刪除</button>
+                        <button onclick="location.href='todo-detail.html?id=${item.id}'" data-num="${item.id}" class="text-dark bg-yellow align-middle">看詳細</button>
+                        <button id="deleteTodo" type="submit" data-num="${item.id}" class="bg-red align-middle">刪除</button>
                       </div>
                     </li>
                     <hr>
@@ -69,6 +69,8 @@ addNewTodoBtn.addEventListener("click", function(e){
     .then(function(response){
         console.log(response);
         init();
+        newTodo.value = '';
+        newTodoDetail.value = '';
     });
 
 });
@@ -77,19 +79,15 @@ addNewTodoBtn.addEventListener("click", function(e){
 todos.addEventListener("click", function(e){
     console.log(e.target);
     if(e.target.getAttribute("id")!=="deleteTodo"){
-        
         console.log('not on target');
         return;
-      } 
-    //   else {
-    //     console.log('bingo');
-    //     alert('要刪除嗎？');
-    //   }
+    } 
+
     let num = e.target.getAttribute("data-num");
-  axios.delete(`${url}/todos/${num}`)
-  .then(function(res){
-    alert("刪除成功！");
-    init();
-  })
+    axios.delete(`${url}/todos/${num}`)
+    .then(function(res){
+        alert("刪除成功！");
+        init();
+    })
 
 });
