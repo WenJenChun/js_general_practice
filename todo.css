@@ -1,0 +1,26 @@
+:root{
+ --green: #C0EEE4;
+ --dark-green: #035845;
+ --yellow: #F8F988;
+ --pink: #FFCAC8;
+ --red: #FF9E9E;
+}
+
+button{
+    border: none;
+    box-shadow: none;
+    padding: 5px 12px;
+    color: white;
+}
+
+.dark-green{
+    color: var(--dark-green);
+}
+
+.bg-green{
+    background-color: var(--green);
+}
+
+.bg-red{
+    background-color: var(--red);
+}
