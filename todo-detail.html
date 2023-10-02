@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./todo.css">
+    <link rel="stylesheet" href="./todos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body class="bg-green">
-    <h2 class="text-center my-5 dark-green">這頁是用來練習 json-server 做 todo 代辦事項！</h2>
-    <p id="server" class="text-center"></p>
-    <div class="text-center mt-5">
-        <h4>新增待辦事項</h4>
-        <input type="text" class="form-control w-50 mx-auto my-3" id="newTodo" placeholder="有什麼待辦事項呢~?">
-        <button id="addNewTodo" type="submit" class="btn btn-primary mt-4">新增</button>
+<body>
+    <div class="my-5">
+        <h1 id="todoTitle" class="text-center"></h1>
+        <p id="todoDetail" class="text-center"></p>
     </div>
-
-    <ul id="todos" class="w-50 mx-auto mt-3">
-    </ul>
     
+    <a href="./todos.html" class="d-block text-center">回待辦清單頁</a><br>
+    <a href="index.html" class="d-block text-center">回首頁</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="./todo.js"></script>
+    <script src="./todo-detail.js"></script>
 </body>
 </html>
