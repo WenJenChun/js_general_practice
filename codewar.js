@@ -74,16 +74,52 @@
 
 // ==========  Vowel Count ==========  
 
-function getCount(str) {
-    //把字串裡有母音的字符挑出來
-    //把母音都列出來
-    //把字串去對照母音陣列
-    let vowelNum = 0;
-    for(let i = 0; i<=str.length; i++){
-        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'){
-            vowelNum++;
+// function getCount(str) {
+//     //把字串裡有母音的字符挑出來
+//     //把母音都列出來
+//     //把字串去對照母音陣列
+//     let vowelNum = 0;
+//     for(let i = 0; i<=str.length; i++){
+//         if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'){
+//             vowelNum++;
+//         }
+//     }
+//     // console.log(vowelNum);
+// }
+// getCount('aeiou');
+
+
+//========== Century From Year ==========
+    //[0][1][2][3]
+    // 1705 --> 18
+    // 1900 --> 19
+    // 1601 --> 17
+    // 2000 --> 20
+
+    // The first century spans from the year 1 up to and including the year 100, 
+    //the second century - from the year 101 up to and including the year 200, etc.
+
+function century(year) {
+
+    let century = 0;
+    
+    if(year.toString().length >= 3){
+
+        if (year%100 == 0){
+            century = year/100;
+        } else {
+            century = Math.floor(year/100)+1;
+            console.log(century);
         }
-    }
-    // console.log(vowelNum);
-}
-getCount('aeiou');
+
+    } else{
+        console.log(year.toString().length);
+        century = 1;
+    } 
+    
+    
+    return  Number(century);
+    
+  }
+
+  century(100);
