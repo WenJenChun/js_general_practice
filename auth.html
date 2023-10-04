@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <p>json-server-auth 練習</p>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        let token = "";
+
+        function signUp(){
+            axios.post("http://localhost:3000/signup",{
+                "email": "5566@mail.com",
+                "password": "5566",
+                "name": "協志"
+            }).then(function(res){
+                console.log(res.data);
+            }).catch(function(error){
+                console.log(error.response)
+            });
+        };
+
+        function signIn(pwd){
+            axios.post("http://localhost:3000/signin",{
+                "email": "5566@mail.com",
+                "password": pwd,
+            }).then(function(res){
+                token = res.data.accessToken;
+                console.log(res.data);
+            }).catch(function(error){
+                console.log(error.response)
+            });
+        }
+
+        //沒權限規範
+        function updatePassword(pwd){
+            axios.patch("http://localhost:3000/users/1",{
+                "password": pwd,
+            }).then(function(res){
+                console.log(res.response);
+            }).catch(function(error){
+                console.log(error.response)
+            });
+        }
+
+        //有權限規範
+        //.patch("url",{要修改的參數},{token})
+        function updatePassword2(pwd){
+            axios.patch("http://localhost:3000/600/users/1",{
+                "password": pwd,
+            },{
+                headers:{
+                    "authorization": `Bearer ${token}` // Bearer是加密用
+                }
+            }).then(function(res){
+                console.log(res.response);
+            }).catch(function(error){
+                console.log(error.response)
+            });
+        }
+
+
+
+     </script>
+</body>
+</html>
